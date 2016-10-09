@@ -1,5 +1,5 @@
 /* globals io:false */
-const socket = io('/', {path: '/chat'})
+const socket = io('/', {path: '/chat', transports: ['websocket']})
 const inputForm = document.getElementById('inputForm')
 const message = document.getElementById('m')
 const messagesHistory = document.getElementById('messagesHistory')

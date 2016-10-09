@@ -9,17 +9,18 @@ const io = require('socket.io')(server, options)
 
 const fs = require('fs')
 app.get('/', (req, res) => {
-  const indexHtml = fs.createReadStream('index.html')
+  const indexHtml = fs.createReadStream(`${__dirname}/index.html`)
   indexHtml.pipe(res)
 })
-app.use('/public', express.static('public'))
-app.use('/js', express.static('js'))
+app.use('/public', express.static(`${__dirname}/public`))
+app.use('/js', express.static(`${__dirname}/js`))
 
 server.listen(3000, () => {
   console.log('started listening on *:3000')
   console.log(`socket path is ${io.path()}`)
 })
 
+io.set('transports', ['websocket'])
 io.on('connection', socket => {
   console.log(io.sockets.connected[socket.id].id)
   console.log(`${new Date()}: ${socket.id} connected, namespace is ${io.sockets.name}`)

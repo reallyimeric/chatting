@@ -7,13 +7,13 @@ const options = {
 }
 const io = require('socket.io')(server, options)
 
-const fs = require('fs')
-app.get('/', (req, res) => {
-  const indexHtml = fs.createReadStream(`${__dirname}/index.html`)
-  indexHtml.pipe(res)
-})
-app.use('/public', express.static(`${__dirname}/public`))
-app.use('/js', express.static(`${__dirname}/js`))
+// const fs = require('fs')
+// app.get('/', (req, res) => {
+//   const indexHtml = fs.createReadStream(`${__dirname}/index.html`)
+//   indexHtml.pipe(res)
+// })
+// app.use('/public', express.static(`${__dirname}/public`))
+// app.use('/js', express.static(`${__dirname}/js`))
 
 server.listen(3000, () => {
   console.log('started listening on *:3000')

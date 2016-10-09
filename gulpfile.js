@@ -32,7 +32,7 @@ gulp.task('browser-sync', ['nodemon-server'], () => {
   browserSync.init({
     port: 3001,
     proxy: {
-      target: 'http://localhost:3000',
+      target: 'http://chatting.flyingdance.us',
       ws: true
     }
   })

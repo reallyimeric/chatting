@@ -18,15 +18,15 @@ gulp.task('nodemon-server', () => {
       NODE_ENV: 'development',
     },
     // tasks:['main']
+  })
+  .on('restart', () => {
+    console.log('restarted');
   });
-})
-.on('restart', () => {
-  console.log('restarted');
+//   .on('start', () => {
+//     console.log('browser reloading');
+//     browserSync.reload();
+//   });
 });
-// .on('start', () => {
-//   console.log('browser reloading')
-//   browserSync.reload()
-// })
 
 gulp.task('browser-sync', ['nodemon-server'], () => {
   browserSync.init({
